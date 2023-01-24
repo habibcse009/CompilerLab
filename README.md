@@ -237,12 +237,79 @@ anterior/ <br>
 Given string is postfix <br>
 
 ***
-#### Example 3: A java code to determine a string is recogniged as a*, aab, a*b+ or not.
+#### Example 3: A java code to copy any content of text from one file to another
 
 ```
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
 
+public class FindFIRSTusingFile {
+
+	public static void main(String[] args) {
+		try
+		{
+			boolean create=true;
+			Scanner KB=new Scanner(System.in);
+
+			System.out.print("Enter Source File Name:");
+			String sfilename=KB.next();
+			File srcfile=new File(sfilename);
+			if(!srcfile.exists())
+			{
+				System.out.println("File Not Found..");
+			}
+			else
+			{
+				FileInputStream FI=new FileInputStream(sfilename);
+				System.out.print("Enter Target File Name:");
+				String tfilename=KB.next();
+				File tfile=new File(tfilename);
+				if(tfile.exists())
+				{  
+					System.out.print("File Already Exist OverWrite it..Yes/No?:");
+					String confirm=KB.next();
+					if(confirm.equalsIgnoreCase("yes"))
+					{ 
+						create=true;
+					}
+					else 
+					{
+						create=false;  
+					} 
+				}  
+				if(create)
+				{
+					FileOutputStream FO=new FileOutputStream(tfilename);
+					int b;
+					/*while((b=FI.read())!=-1)
+					{ if (b) {
+						
+					}
+
+						FO.write(b);
+					}*/
+					//read content and write in another file
+					while((b=FI.read())!=-1)
+					{ 
+						FO.write(b);
+					}
+					System.out.println("\nFIRST of the given grammer is Copied in File.");
+				}
+				FI.close();
+			}
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+	}
+}
 ```
 #### Output: 
+![Screenshot 2023-01-24 130741](https://user-images.githubusercontent.com/27882232/214231744-4a8a6e5a-0ff0-457b-bce3-fe208fb162cd.jpg)
 
 
 ***
