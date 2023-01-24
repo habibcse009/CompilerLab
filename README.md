@@ -60,9 +60,11 @@ public class FinalFirstClass {
 Please enter a string : <br>
 abcd <br>
 abcd is recognized by a*b+ <br>
+--------------------  <br>
 Please enter a string :  <br>
 aab  <br>
 aab is recognized by aab <br>
+-------------------- <br>
 Please enter a string :  <br>
 xyz <br>
 String can not recogniged <br>
